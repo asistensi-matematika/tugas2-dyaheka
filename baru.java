@@ -61,6 +61,12 @@ public class baru extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("masukkan nilai n");
 
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -83,11 +89,26 @@ public class baru extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1 ", "Item 2", "Item 3" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "nomor 1", "nomor 2", "nomor 3" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("HITUNG SOAL2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("HITUNG SOAL3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("tampilan soal");
@@ -112,19 +133,19 @@ public class baru extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(121, 121, 121)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField1)
                             .addComponent(jTextField2)
                             .addComponent(jTextField3)
-                            .addComponent(jTextField4)
                             .addComponent(jComboBox1, 0, 88, Short.MAX_VALUE))
                         .addGap(127, 127, 127))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(67, 67, 67)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
@@ -145,7 +166,7 @@ public class baru extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -176,7 +197,7 @@ public class baru extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -199,14 +220,11 @@ public class baru extends javax.swing.JFrame {
     double x = Double.parseDouble(tampunginputx);
     double a = Double.parseDouble(tampunginputa);
     double n = Double.parseDouble(tampunginputn);
-    String soal=null;
-    double f0;
-        
-
+    double f0;   
+    String soal;
         if (x<0){
-            if (soal == "item1"){     
-            
-             f0=Math.log(-x);
+                 
+             f0 = Math.log(-x);
                     double hasilakhir,hasilfganjil= 0,hasilfgenap=0;
 
         for(double i =0;i<=n;i++){
@@ -220,52 +238,37 @@ public class baru extends javax.swing.JFrame {
         String output = Double.toString(hasilakhir);
         jTextField4.setText(output);}
     else if (x>=0){
-    jTextField4.setText("nilai numerus tidak  boleh kurang dari nol");}}
-}
-
-
+    jTextField4.setText("nilai numerus tidak  boleh lebih dari nol");}
             
-private void jCOmboBox1ActionPerformed(java.awt.event.ActionEvent evt){
-    String soal = (String)jComboBox1.getSelectedItem();
-    switch (soal){
-case "item1":
-String soal1 = "f(x) = ln(-x)";
-jTextField5.setText("f(x) = ln(-x)");
-break;
-
-case"item2":
-String soal2 = "f(x) = (e^(x^2))";
-jTextField5.setText("f(x) = (e^(x^2))");
-break;
-
-case "item3":
-String soal3 = "f(x) = cos(-6x)";
-jTextField5.setText("f(x) = cos(-6x)");
-break;
-  
-    }
     }//GEN-LAST:event_jButton1ActionPerformed
-private void jButton2ActionPerformed(java.awt.event.ActionEvent evt){
-    String tampunginputn = jTextField1.getText();
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+       
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    String tampunginputn = jTextField3.getText();
     String tampunginputa = jTextField2.getText();
-    String tampunginputx = jTextField3.getName();
+    String tampunginputx = jTextField1.getText();
     double n = Double.parseDouble(tampunginputn);
     double a = Double.parseDouble(tampunginputa);
     double x = Double.parseDouble(tampunginputx);
     double e = 2.718;
-    double nilaie = Math.pow(e,Math.pow(x,2));
-    double hasilakhir=0;
+    double ne = Math.pow(e,(Math.pow(x,2)));
+    double hasilf = 0;
             for(double i=0;i<=n;i++){
-                double hasil = (Math.pow(2,i)*nilaie*Math.pow((x-a),i))/faktorial((int)i);
-                hasilakhir=hasil++;
-                String output = Double.toString(hasilakhir);
+                double hasil = (Math.pow(2,i) * ne * Math.pow((x-a),i))/(faktorial((int)i));
+                hasilf = hasil++;
+                String output = Double.toString(hasilf);
                 jTextField4.setText(output);
             }
-}
-private void jButton3ActionPerformed(java.awt.event.ActionEvent evt){
-    String tampunginputn = jTextField1.getText();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    String tampunginputn = jTextField3.getText();
     String tampunginputa = jTextField2.getText();
-    String tampunginputx = jTextField3.getText();
+    String tampunginputx = jTextField1.getText();
     double n = Double.parseDouble(tampunginputn);
     double a = Double.parseDouble(tampunginputa);
     double x = Double.parseDouble(tampunginputx);
@@ -286,13 +289,31 @@ private void jButton3ActionPerformed(java.awt.event.ActionEvent evt){
             break;
         }
                    
-        jTextField4.setText(String.valueOf(g));}
-      }
-    
+        jTextField4.setText(String.valueOf(function));}
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        String soal = (String)jComboBox1.getSelectedItem();
+    switch (soal){
+    case "nomor 1":
+    String soal1 = "f(x) = ln(-x)";
+        jTextField5.setText(String.valueOf(soal1));
+        break;
+    case "nomor 2":
+    String soal2 = "f(x) = (e^(x^2))";
+        jTextField5.setText(String.valueOf(soal2));
+        break;
+    case "nomor 3":
+    String soal3 = "f(x) = cos(-6x)";
+        jTextField5.setText(String.valueOf(soal3));
+        break;  
+    }
+
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
